@@ -1,0 +1,53 @@
+% !TEX TS-program = pdflatex
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+
+\title{Brief Article}
+\author{The Author}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+%\section{}
+%\subsection{}
+
+   
+\vspace*{3ex}\noindent
+Just a test, we  cite two documents from two databases (two files *.bib) maintained by F. Brglez under the Google Drive.
+\begin{itemize}
+\item
+A citation about the textbook we shall nominally use in the 
+course~\cite{OPUS-book_opt-2014-Springer-Cortez-OptimizationWithR}.
+\item
+A citation  about an article on experiments that predict the asymptotic runtime for
+an well-known NP-hard problem~\cite{OPUS2-2017-labs-Elsevier-Boskovic}. 
+\end{itemize}  
+
+% TWO *.bib files under latex-gdrive are maintained by Franc Brglez under 
+% https://drive.google.com/drive/folders/0B6mJTvscUcVfM285R25sR0QxUkE
+% and locally by each user 
+% The symbolic links to both .bib files MUST be created under bash as per below:
+%$ pwd
+%/Users/brglez/Desktop/__work/_CSC801-002-2018-sp/Lectures/Lecture-01
+%$ ls *.bib
+%OPUS_tmp.bib
+%$ ln -s /Users/brglez/Google\ Drive/latex-gdrive/OPUS.bib   OPUS.bib
+%$ ln -s /Users/brglez/Google\ Drive/latex-gdrive/OPUS2.bib   OPUS2.bib
+%$ ls -la *.bib
+%lrwxr-xr-x  1 brglez  staff  48 Jan 12 09:54 OPUS.bib -> /Users/brglez/Google Drive/latex-gdrive/OPUS.bib
+%lrwxr-xr-x  1 brglez  staff  49 Jan 12 09:54 OPUS2.bib -> /Users/brglez/Google Drive/latex-gdrive/OPUS2.bib
+%-rw-r--r--@ 1 brglez  staff   0 Dec 12 11:49 OPUS_tmp.bib
+%$
+
+% BOTH OPUS.bib and OPUS.bib files are automatically synched to Google Drive by Franc Brglez
+% However, the file OPUS_tmp.bib is maintained locally until it get synched on Google Drive
+\bibliography{./OPUS,./OPUS2,./OPUS_tmp}
+\bibliographystyle{unsrt}
+%\bibliographystyle{plainnat}
+\end{document}  
