@@ -1,0 +1,30 @@
+> getwd()
+[1] "/Users/brglez"
+
+> setwd("/Users/brglez/Desktop/__work/_CSC801-002-2018-sp/__scratch")
+
+> getwd()
+[1] "/Users/brglez/Desktop/__work/_CSC801-002-2018-sp/__scratch"
+
+######## testing the library _course_basic.r
+> source("../_course_lib_r/_course_basic.r")  ; signifDigits(320.001) ; signifDigits(320) ; signifDigits(3.142) 
+
+> source("../_course_lib_r/_course_basic.r")  ; file_header("fileTest.txt") 
+
+> source("../_course_lib_r/_course_basic.r")  ; file_asym_stats("../_course_lib_r/data/fg-asym-pi_needles_test1.txt",  cntProbeLmt=1000, xName="signifDigits", yNames=c("cntProbe", "runtime"))
+
+######## testing the library _course_OF_xyz.r(continuous Objective Functions) 
+> source("../_course_lib_r/_course_OF_xyz.r") ; pi_newton(2) ;  pi_newton(3) ;  pi_newton(4)  ;  pi_newton(5)
+
+> source("../_course_lib_r/_course_OF_xyz.r") ; pi_BPP(3) ; pi_BPP(4) ; pi_BPP(5) ; pi_BPP(15)
+
+> source("../_course_lib_r/_course_OF_xyz.r") ; pi_needles(1000)
+
+> source("../_course_lib_r/_course_OF_xyz.r") ; pi_darts(1000)
+
+######## testing the library _course_xPer_pi.r
+> source("../_course_lib_r/_course_xPer_pi.r") ; xPer_pi_BPP(3:17)
+
+> source("../_course_lib_r/_course_xPer_pi.r") ; xPer_pi_needles(10,1215,1000,1, 2:4)
+
+> source("../_course_lib_r/_course_xPer_pi.r") ; xPer_pi_darts(10,1215,1000,2:4)
