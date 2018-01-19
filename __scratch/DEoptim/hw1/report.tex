@@ -1,0 +1,89 @@
+\documentclass[a4paper]{article}
+    \linespread{2}
+    \def\contra{\tikz[baseline, x=0.22em, y=0.22em, line width=0.032em]\draw (0,2.83)--(2.83,0) (0.71,3.54)--(3.54,0.71) (0,0.71)--(2.83,3.54) (0.71,0)--(3.54,2.83);} 
+    \usepackage[english]{babel}
+    \usepackage[utf8x]{inputenc}
+    
+    \usepackage{graphicx}
+    \usepackage[colorinlistoftodos]{todonotes}
+    \usepackage{amsmath,amsthm, amsfonts,amssymb}
+    \title{Homework}
+    
+    \author{Edward Chan}
+    
+    \begin{document}    
+    \maketitle
+    \section{Problem 1}
+        This code uses measure the speed of DEoptim and the efficiency of DEoptim
+        DEoptim find the minimum of self-made function wild.
+        Higher Popsize lead to less trial times while increasing the time. OFpar 
+        increases the trial time by running the experiment for a few more time.
+
+        To compare to the Pi experiment. We can vary the upper and lower bound and
+        observe how it changes the run time. That way we can model the efficiency
+    \begin{verbatim}
+
+seedInit = 8696 
+lowerBnd = -50 
+upperBnd = 50 
+iterLmt  = 800 
+popSize  = 1024 
+***** summary of DEoptim object ***** 
+best member   :  -15.8145 
+best value    :  0 
+after         :  7 generations 
+fn evaluated  :  16 times 
+*************************************
+
+seedInit = 5672 
+lowerBnd = -50 
+upperBnd = 50 
+iterLmt  = 800 
+popSize  = 64 
+***** summary of DEoptim object ***** 
+best member   :  -15.81497 
+best value    :  0 
+after         :  13 generations 
+fn evaluated  :  28 times 
+*************************************
+
+seedInit = 785 
+lowerBnd = -100 -100 
+upperBnd = 100 100 
+iterLmt  = 100 
+popSize  = 256 
+
+***** summary of DEoptim object ***** 
+best member   :  -15.66071 -15.81518 
+best value    :  0.00923 
+after         :  100 generations 
+fn evaluated  :  202 times 
+*************************************
+
+lowerBnd = -1e+05 -1e+05 
+upperBnd = 1e+05 1e+05 
+iterLmt  = 2000 
+popSize  = 256 
+
+***** summary of DEoptim object ***** 
+best member   :  -15.81514 -15.81487 
+best value    :  0 
+after         :  216 generations 
+fn evaluated  :  434 times 
+*************************************
+
+seedInit = 4728 
+lowerBnd = -1e+10 -1e+10 
+upperBnd = 1e+10 1e+10 
+iterLmt  = 2000 
+popSize  = 256 
+
+***** summary of DEoptim object ***** 
+best member   :  -15.81554 -15.81495 
+best value    :  0 
+after         :  251 generations 
+fn evaluated  :  504 times 
+*************************************
+
+    \end{verbatim}
+\end{document}
