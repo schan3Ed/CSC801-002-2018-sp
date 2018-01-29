@@ -1,0 +1,13 @@
+# fileName  = fg-asym-pi_needles_11124219_stats.txt 
+# userId    = brglez 
+# nodeName  = mb-mushi.local 
+# sysName   = Darwin 
+# date      = 20180111 
+# timeStamp = 11124249 
+#
+# command   = file_asym_stats(...) 
+#
+signifDigits	sampleSize	cntHitsPerc	cntProbeLmt	cntProbe_med	cntProbe_mean	cntProbe_sd	cntProbe_min	cntProbe_max	runtime_med	runtime_mean	runtime_sd	runtime_min	runtime_max
+2	10	100.00	1000	27.5	46	34.3575966046003	11	99	0.0115	0.0139	0.014433371824429	0	0.042
+3	10	90.00	1000	377	399	90.8749140302207	278	564	0.416	0.442444444444444	0.200794117886401	0.206	0.804
+4	10	20.00	1000	715.5	715.5	7.77817459305202	710	721	1.29	1.29	0.0311126983722081	1.268	1.312

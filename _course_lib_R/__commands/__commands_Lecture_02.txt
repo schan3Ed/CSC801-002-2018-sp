@@ -1,0 +1,58 @@
+> date()
+[1] "Sun Jan 14 11:49:10 2018"
+ 
+> getwd()
+[1] "/Users/brglez"
+
+######## LOCAL drive
+> setwd("/Users/brglez/Desktop/__work/_CSC801-002-2018-sp/__scratch")
+> getwd()
+[1] "/Users/brglez/Desktop/__work/_CSC801-002-2018-sp/__scratch"
+
+######## GOOGLE drive
+> setwd("/Users/brglez/Google Drive/_CSC801-002-2018-sp/__scratch")
+>  getwd()
+[1] "/Users/brglez/Google Drive/_CSC801-002-2018-sp/__scratch"
+> 
+
+
+######## testing new additions to the library _course_basic.r
+source("./table2html.R") ; table2html("fg_asym_pi_darts_unfinished.txt")
+.. table2html: created a file named as = fg_asym_pi_darts_unfinished.html
+
+source('./table2html.R') ; table2html('fg_asym_pi_darts_unfinished.txt')
+.. table2html: created a file named as = fg_asym_pi_darts_unfinished.html
+######## George will explain the background that influenced the creation of this elegant code
+         George, can you please extend the code to work with relative paths, e.g.
+         source('./table2html.R') ; table2html('../_course_lib_R/data/fg_asym_pi_needles_test1.txt')
+
+
+######## testing additions to ibrary ../_course_lib_R/_course_OF_xyz.R
+source("../_course_lib_R/_course_OF_xyz.R") ; pi_digits()
+
+######## testing the updated library ../_course_lib_R/_course_wrap_xyz.R
+
+source("../_course_lib_R/_course_wrap_xyz.R") ; OF_target_verify()  
+source("../_course_lib_R/_course_wrap_xyz.R") ; OF_target_verify("wildN")
+
+source("../_course_lib_R/_course_wrap_xyz.R") ; OF_quant_exh(OFname="aParab13_2", xLO= 10, xHI=15,  xBits=4)
+source("../_course_lib_R/_course_wrap_xyz.R") ; OF_quant_exh(OFname="aParab13_2", xLO= 11, xHI=15,  xBits=4)
+source("../_course_lib_R/_course_wrap_xyz.R") ; OF_quant_exh(OFname="aParab13_4", xLO= 11, xHI=15,  xBits=4)
+source("../_course_lib_R/_course_wrap_xyz.R") ; OF_quant_exh(OFname="wildN"     , xLO=-18, xHI=18,  xBits=11)
+ 
+source("../_course_lib_R/_course_wrap_xyz.R") ; OF_quant_boxes(OFname="wildN",      tolXmin=0.0001, tolXmax=0.01)
+source("../_course_lib_R/_course_wrap_xyz.R") ; OF_quant_boxes(OFname="aParab13_8", tolXmin=0.0005, tolXmax=0.01)
+source("../_course_lib_R/_course_wrap_xyz.R") ; OF_quant_boxes(OFname="aParab13_2", tolXmin=0.0001, tolXmax=0.01)
+source("../_course_lib_R/_course_wrap_xyz.R") ; OF_quant_boxes(OFname="rastriginN", tolXmin=0.0002, tolXmax=0.01)
+source("../_course_lib_R/_course_wrap_xyz.R") ; OF_quant_boxes(OFname="rastriginN", tolXmin=0.0002, tolXmax=0.01)
+
+
+ source("../_course_lib_R/_course_wrap_xyz.R") ; out = wrap_DEoptim(seedInit=-1, OFname="wildN")  ; summary(out) ;# print(out)
+
+ source("../_course_lib_R/_course_wrap_xyz.R") ; out = wrap_DEoptim(popSize=64, OFname="rastriginN",  iterLmt=100, OFpar=1) ; summary(out) 
+                                                    ...
+ source("../_course_lib_R/_course_wrap_xyz.R") ; out = wrap_DEoptim(popSize=64, OFname="schwefelN",  iterLmt=200, OFpar=2) ; summary(out) 
+ 
+ source("../_course_lib_R/_course_wrap_xyz.R") ; out = wrap_DEoptim_plain( sampleSize=1, seedInit=-1, OFname="wild", nPar=2)
+                                                    ...
+

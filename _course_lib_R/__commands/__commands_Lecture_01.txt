@@ -1,0 +1,58 @@
+> date()
+[1] "Sun Jan 14 11:49:10 2018"
+ 
+> getwd()
+[1] "/Users/brglez"
+
+######## LOCAL drive
+> setwd("/Users/brglez/Desktop/__work/_CSC801-002-2018-sp/__scratch")
+> getwd()
+[1] "/Users/brglez/Desktop/__work/_CSC801-002-2018-sp/__scratch"
+
+######## GOOGLE drive
+> setwd("/Users/brglez/Google Drive/_CSC801-002-2018-sp/__scratch")
+>  getwd()
+[1] "/Users/brglez/Google Drive/_CSC801-002-2018-sp/__scratch"
+> 
+
+######## testing the library _course_basic.R
+> source("../_course_lib_R/_course_basic.R")  ; signifDigits(320.001) ; signifDigits(320) ; signifDigits(3.142) 
+
+                                                file_header("fileTest.txt") 
+
+                                                file_asym_stats("../_course_lib_R/data/fg_asym_pi_needles_test1.txt",  cntProbeLmt=1000, xName="signifDigits", yNames=c("cntProbe", "runtime"))
+
+                                                file_asym_stats("fg_asym_pi_needles_15205102_stats.txt")
+
+######## testing the library _course_OF_xyz.R (continuous OF (Objective Functions)) 
+> source("../_course_lib_R/_course_OF_xyz.R") ; pi_digits()
+
+                                                pi_newton(2) ;  pi_newton(3) ;  pi_newton(4)  ;  pi_newton(5)
+
+                                                pi_BPP(3) ; pi_BPP(4) ; pi_BPP(5) ; pi_BPP(15)
+
+                                                pi_needles(1000)
+
+                                                pi_darts(1000)
+
+
+
+######## testing the library _course_xPer_pi.R
+> source("../_course_lib_R/_course_xPer_pi.R") ; xPer_pi_BPP(1:15)
+
+                                                 xPer_pi_needles(5, 9625, 600,1, 2:4)
+                                                 xPer_pi_needles(5, 9625, 600,1, 2:4)       
+                                                 xPer_pi_needles(5,   -1, 600,1, 2:4)
+                                                 xPer_pi_needles(5,   -1, 600,1, 2:4)
+
+                                                 xPer_pi_darts(5, 1215, 1000, 2:4)
+
+######## testing the library _course_xPer_DEoptim.R
+> source("../_course_lib_R/_course_xPer_DEoptim.R") ; xPer_DEoptim()
+
+
+> source("fg_asym_pi.R") ; fg_asym_pi_darts("fg_asym_pi_darts_signif5.txt")
+
+> source("fg_asym_pi.R") ; fg_asym_pi_darts("fg_asym_pi_needles_signif5.txt")
+
+> source("fg_asym_pi.R") ; fg_asym_pi_darts_needles("fg_asym_pi_darts_signif5_stats.txt", "fg_asym_pi_needles_signif5_stats.txt")
