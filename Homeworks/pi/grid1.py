@@ -1,5 +1,14 @@
 import random
+import time
 BKV = 3.14
+
+def timedfunction(f, *a, **b):
+    start = time.time()
+    a = f(*a, **b)
+    end = time.time()
+    return end - start, a
+
+
 def singleDrop():
     "dropping a single needle"
     return False
@@ -26,11 +35,12 @@ def run(probLmt=100, errInterval=0.05, experimentCnt=50, seed=None):
     seed = seed or random.random() * 9999
     for i in range(experimentCnt):
         isCensored = False
-        pi, cnt, isCensored = singleExperiment(probLmt, errInterval, seed)
+        t, result = timedfunction(singleExperiment, probLmt, errInterval, seed)
+        pi, cnt, isCensored = result
         entry.append([pi, cnt, isCensored])
     print(entry)
     return
 
 if __name__ == "__main__":
-    run()
+    timedfunction(run)
 
