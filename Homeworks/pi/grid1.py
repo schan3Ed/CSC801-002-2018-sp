@@ -1,6 +1,8 @@
 import random
 import time
-BKV = 3.14
+import numpy as np
+import math
+BKV = 3.14159
 
 def timedfunction(f, *a, **b):
     start = time.time()
@@ -9,8 +11,14 @@ def timedfunction(f, *a, **b):
     return end - start, a
 
 
-def singleDrop():
+def singleDrop(d=1.0, L=1.0):
     "dropping a single needle"
+    y = np.random.uniform(0, d)
+    angle = np.random.uniform(0, math.pi)
+    height = L/2 * np.sin(angle)
+  #  print y - height
+    if (y + height) >= d or (y - height) <= 0:
+        return True
     return False
     
 def singleExperiment(pl, err, seed):
@@ -22,20 +30,23 @@ def singleExperiment(pl, err, seed):
     BKV_lower = BKV - err
     for i in range(pl):
         if(singleDrop()):
-            hit += 1
-        cnt += 1
-        pi = 2 * hit / cnt
-        if pi > BKV_lower and pi < BKV_upper:
+            hit += 1.0
+        cnt += 1.0
+        if hit:
+            pi = 2 * cnt / hit
+        #print pi
+        if pi >= BKV_lower and pi <= BKV_upper:
             return pi, cnt, False
-    return -1, cnt, True
+    return pi, cnt, True
 
-def run(probLmt=100, errInterval=0.05, experimentCnt=50, seed=None):
+#@timedfunction
+def run(probLmt=10000, tol=0.05, experimentCnt=5, seed=None):
     "main method for parallel line"
     entry = []
-    seed = seed or random.random() * 9999
+    np.random.seed(seed)
     for i in range(experimentCnt):
         isCensored = False
-        t, result = timedfunction(singleExperiment, probLmt, errInterval, seed)
+        t, result = timedfunction(singleExperiment, probLmt, tol, seed)
         pi, cnt, isCensored = result
         entry.append([pi, cnt, isCensored])
     print(entry)
@@ -43,4 +54,5 @@ def run(probLmt=100, errInterval=0.05, experimentCnt=50, seed=None):
 
 if __name__ == "__main__":
     timedfunction(run)
+  #  print("Program running")
 
