@@ -1,8 +1,10 @@
 import random
 import time
 import numpy as np
+import sys
 import math
-BKV = 3.14159
+
+BKV = 3.14159265359
 
 def timedfunction(f, *a, **b):
     start = time.time()
@@ -40,19 +42,29 @@ def singleExperiment(pl, err, seed):
     return pi, cnt, True
 
 #@timedfunction
-def run(probLmt=10000, tol=0.05, experimentCnt=5, seed=None):
+def run(probLmt=10000, tol=0.005, experimentCnt=5, seed=None):
     "main method for parallel line"
     entry = []
+    seed = seed or np.random.randint(low=0, high=9999)
     np.random.seed(seed)
     for i in range(experimentCnt):
         isCensored = False
         t, result = timedfunction(singleExperiment, probLmt, tol, seed)
         pi, cnt, isCensored = result
-        entry.append([pi, cnt, isCensored])
-    print(entry)
-    return
+        entry.append({
+            "Pi": round(pi, 7), 
+            "Count": cnt, 
+            "IsCensored":isCensored, 
+            "Seed":seed, 
+            "Error": round(pi - BKV, 7)
+            })
+        seed = np.random.randint(low=0, high=9999)
+        np.random.seed(seed)
+    return entry
 
 if __name__ == "__main__":
-    timedfunction(run)
+    p = run()
+    for i in p:
+        print i
   #  print("Program running")
 
