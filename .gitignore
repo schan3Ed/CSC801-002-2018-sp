@@ -3,3 +3,6 @@ _*/
 *.tex
 *.aux
 .vscode/
+/**
+! /Homeworks/pi
+! /.gitignore
